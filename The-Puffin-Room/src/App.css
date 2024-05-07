@@ -51,11 +51,33 @@
   img{
     width: 100vw;
   }
-  text-align: center;
 }
 
 .articleBody{
   margin-top: 20px;
   margin-left: 10%;
   margin-right: 10%;
+}
+
+.commentCard{
+  border-top: 1px dotted grey;
+  margin: 20px;
+  padding-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  img{
+    width: 20px;
+    height: 20px;
+  }
+
+}
+
+.voteAndCommentBar{
+  img{
+    margin-left: 30px;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+  display: inline-flex;
 }
