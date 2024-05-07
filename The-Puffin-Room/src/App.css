@@ -1,0 +1,48 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Dai Banna SIL', sans-serif;
+}
+
+.headerBar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  color: #333;
+  box-shadow: 0 4px 5px -5px gray;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-family: 'MostraOneBold', sans-serif;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  word-wrap: break-word;
+}
+
+.articleCard{
+  font-family: 'Dai Banna SIL', sans-serif;
+  width: 80vw;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: inline-flex;
+  text-align: left;
+
+  border-bottom: 1px dotted grey;
+
+  img{
+    margin-right: 30px;
+    border-radius: 10%;
+    max-width: 290px;
+    max-height: 205px;
+  }
+}
+
+.topic{
+  color: #B71A27;
+}
