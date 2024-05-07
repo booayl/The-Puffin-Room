@@ -13,7 +13,7 @@ const howLongAgo= moment(date, "YYYYMMDD").fromNow();
   <div className="commentCard">
 <>{comment.author} . {howLongAgo}</>
 <p>{comment.body}</p>
-<img src="https://cdn-icons-png.flaticon.com/512/2722/2722994.png"/>{comment.votes}</div>
+<img src="https://i.ibb.co/7Wvj2Pm/votes.png"/>{comment.votes}</div>
 );
 }
 
