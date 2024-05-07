@@ -9,3 +9,13 @@ export function getArticleList(page){
         console.log(error)
     })
 }
+
+export function getAricleByID(articleID){
+return axios.get(`https://news-app-u364.onrender.com/api/articles/${articleID}`)
+.then((res)=>{
+    return res.data.article
+})
+.catch((error)=>{
+    console.log(error)
+})
+}
