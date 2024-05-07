@@ -4,15 +4,19 @@ import { useParams } from "react-router-dom";
 import dateFormat from "dateformat";
 import CommentSection from "./5.CommentSection";
 import { getCommentsByArticleID } from "../api";
+import ArticleVotes from "./7.ArticleVotes";
+import Loading from "./0.Loading.jsx";
 
 function ArticleByID() {
   const [article, setArticle] = useState([]);
   const [allComments, setAllComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
   const { article_id } = useParams();
 
   useEffect(() => {
     getAricleByID(article_id).then((articleData) => {
       setArticle(articleData);
+      setIsLoading(false);
     });
   }, [setArticle]);
 
@@ -26,21 +30,33 @@ function ArticleByID() {
 
   return (
     <div className="articleByID">
-      <div>
-        <p className="topic">{article.topic}</p>
-        <h1>{article.title}</h1>
-        <>By {article.author}</>
-        <p>{date}</p>
-        <img src={article.article_img_url} />
-      </div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <div>
+            <p className="topic">{article.topic}</p>
+            <h1>{article.title}</h1>
+            <>By {article.author}</>
+            <p>{date}</p>
+            <img src={article.article_img_url} />
+          </div>
 
-      <p className="articleBody">{article.body}</p>
-      <div className="voteAndCommentBar">
-        <div><img src="https://cdn-icons-png.flaticon.com/512/2722/2722994.png"/>{article.votes}</div>
-        <div><img src="https://cdn.iconscout.com/icon/free/png-256/free-comment-2652894-2202811.png"/>{allComments.length}</div>
-      </div>
+          <p className="articleBody">{article.body}</p>
 
-      <CommentSection allComments={allComments} />
+          <div className="voteAndCommentBar">
+            <div>
+              <ArticleVotes articleVotes={article.votes} />
+            </div>
+            <div>
+              <img src="https://i.ibb.co/xXxtHcg/comments.png" />
+              {allComments.length}
+            </div>
+          </div>
+
+          <CommentSection allComments={allComments} />
+        </>
+      )}
     </div>
   );
 }

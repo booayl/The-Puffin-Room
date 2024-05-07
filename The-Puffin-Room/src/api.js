@@ -29,3 +29,10 @@ export function getCommentsByArticleID(articleID){
         console.log(error)
     })
 }
+
+export function patchArticleVote(articleID, newVote){
+return axios.patch(`https://news-app-u364.onrender.com/api/articles/${articleID}`, newVote)
+.then((response)=>{
+    console.log(response)
+    return response})
+}

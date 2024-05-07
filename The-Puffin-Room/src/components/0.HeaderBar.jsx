@@ -1,7 +1,12 @@
+import { Link } from "react-router-dom";
+
 function HeaderBar(){
     return(
         <div className="headerBar">
-        <>The Puffin Room</>
+        <Link to="/" className="headerTitle">
+        <span className="titleThe">T h e</span><br />
+        <span className="titlePuffinRoom">Puffin Room</span>
+        </Link>
         </div>
     )
 }
