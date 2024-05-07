@@ -46,3 +46,16 @@
 .topic{
   color: #B71A27;
 }
+
+.articleByID{
+  img{
+    width: 100vw;
+  }
+  text-align: center;
+}
+
+.articleBody{
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
