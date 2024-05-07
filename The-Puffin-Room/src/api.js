@@ -19,3 +19,13 @@ return axios.get(`https://news-app-u364.onrender.com/api/articles/${articleID}`)
     console.log(error)
 })
 }
+
+export function getCommentsByArticleID(articleID){
+    return axios.get(`https://news-app-u364.onrender.com/api/articles/${articleID}/comments`)
+    .then((res)=>{
+        return res.data.allComments
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+}
