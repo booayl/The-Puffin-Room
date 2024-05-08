@@ -1,53 +1,112 @@
 #root {
   margin: 0 auto;
   text-align: center;
-  font-family: 'Dai Banna SIL', sans-serif;
+  font-family: "Namdhinggo", sans-serif;
+}
+
+#granim-canvas {
+  width: 200vw;
+  height: 200vh;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .headerBar {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 7vh;
   background-color: white;
   color: #333;
   box-shadow: 0 4px 5px -5px gray;
   padding: 15px;
   margin-bottom: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-items: center;
 }
 
-.headerTitle{
-  font-family: 'MostraOneBold', sans-serif;
-  color: inherit; 
-  text-decoration: none; 
+.content {
+  padding-top: 13vh;
 }
 
-.titleThe{
-font-size: smaller;
+.headerTools {
+  grid-area: 1 / 5 / 2 / 6;
+  align-items: end;
+  button {
+    margin-left: 10px;
+  }
 }
 
-.titlePuffinRoom{
+.headerTitle {
+  font-family: "MostraOneBold", sans-serif;
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+  grid-area: 1 / 2 / 2 / 5;
+}
+
+.headerSpaceHolder {
+  grid-area: 1 / 1 / 2 / 2;
+  img {
+    margin-right: 10px;
+    border: solid #333;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+  }
+  span {
+    position: relative;
+    top: -0.8em;
+  }
+}
+
+.titleThe {
+  font-size: smaller;
+}
+
+.titlePuffinRoom {
   font-size: x-large;
+}
+
+.loginButton {
+  color: inherit;
+  text-decoration: none;
+  background-color: #1b90c6;
+  padding: 8px 15px 8px 15px;
+  color: #fff;
+  border-radius: 5%;
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   word-wrap: break-word;
 }
 
-.articleCard{
-  font-family: 'Dai Banna SIL', sans-serif;
+.articleCard {
+  font-family: "Namdhinggo", sans-serif;
   width: 80vw;
   margin-bottom: 20px;
   padding: 20px;
-  display: inline-flex;
+  display: flex;
   text-align: left;
 
   border-bottom: 1px dotted grey;
 
-  img{
+  img {
     margin-right: 30px;
     border-radius: 10%;
     max-width: 290px;
@@ -55,38 +114,58 @@ font-size: smaller;
   }
 }
 
-.topic{
-  color: #B71A27;
+@media only screen and (max-width: 640px) {
+  .articleCard {
+    font-family: "Namdhinggo", sans-serif;
+    width: 80vw;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+  
+    border-bottom: 1px dotted grey;
+  
+    img {
+      margin-right: 30px;
+      border-radius: 10%;
+      max-width: 320px;
+      max-height: 205px;
+    }
+  }
 }
 
-.articleByID{
-  img{
+.topic {
+  color: #c54f64;
+}
+
+.articleByID {
+  img {
     width: 100vw;
   }
 }
 
-.articleBody{
+.articleBody {
   margin-top: 20px;
   margin-left: 10%;
   margin-right: 10%;
 }
 
-.commentCard{
+.commentCard {
   border-top: 1px dotted grey;
   margin: 20px;
   padding-top: 10px;
   margin-left: 10%;
   margin-right: 10%;
-  img{
+  img {
     margin-right: 5px;
     width: 20px;
     height: 20px;
   }
-
 }
 
-.voteAndCommentBar{
-  img{
+.voteAndCommentBar {
+  img {
     margin-left: 30px;
     margin-right: 5px;
     width: 20px;
@@ -117,8 +196,8 @@ font-size: smaller;
 }
 
 .pagination .current-page {
-  background-color: #333; 
-  color: #fff; 
-  border-radius: 80%; 
+  background-color: #333;
+  color: #fff;
+  border-radius: 80%;
   padding: 5px 10px;
 }
