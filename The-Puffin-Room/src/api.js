@@ -79,3 +79,15 @@ export function getLoginUserData(username){
         console.log(error);
       });
 }
+
+export function postComment(articleID,newComment){
+  return axios.post(`https://news-app-u364.onrender.com/api/articles/${articleID}/comments`, newComment)
+  .then((response)=>{
+    console.log(response.data)
+    return response.data.postedComment
+  })
+  .catch((error) => {
+    console.error("Post Comment failed:", error);
+    throw error;
+  });
+}

@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import dateFormat from "dateformat";
 import CommentSection from "./CommentSection.jsx";
-import { getCommentsByArticleID } from "../api.js";
 import ArticleVotes from "./ArticleVotes.jsx";
 import Loading from "./Loading.jsx";
 
 function ArticleByID() {
   const [article, setArticle] = useState([]);
-  const [allComments, setAllComments] = useState([]);
+  // const [allComments, setAllComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
   const { article_id } = useParams();
 
@@ -19,12 +18,6 @@ function ArticleByID() {
       setIsLoading(false);
     });
   }, [setArticle]);
-
-  useState(() => {
-    getCommentsByArticleID(article_id).then((commments) => {
-      setAllComments(commments);
-    });
-  }, [setAllComments]);
 
   const date = dateFormat(article.created_at, "fullDate");
 
@@ -45,16 +38,10 @@ function ArticleByID() {
           <p className="articleBody">{article.body}</p>
 
           <div className="voteAndCommentBar">
-            <div>
               <ArticleVotes articleVotes={article.votes} />
-            </div>
-            <div>
-              <img src="https://i.ibb.co/xXxtHcg/comments.png" />
-              {allComments.length}
-            </div>
           </div>
 
-          <CommentSection allComments={allComments} />
+          <CommentSection article_id={article_id} />
         </>
       )}
     </div>
