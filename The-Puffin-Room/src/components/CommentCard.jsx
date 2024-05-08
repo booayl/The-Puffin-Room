@@ -18,6 +18,7 @@ if(!comment.author){
   return (
   <div className="commentCard">
 <>{comment.author} . {howLongAgo}</>
+{comment.author === loggedUser.username ? <button>x</button>: null}
 <p>{comment.body}</p>
 <img src="https://i.ibb.co/7Wvj2Pm/votes.png"/>{comment.votes}</div>
 );
