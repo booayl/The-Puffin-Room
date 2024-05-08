@@ -8,7 +8,6 @@ import Loading from "./Loading.jsx";
 
 function ArticleByID() {
   const [article, setArticle] = useState([]);
-  // const [allComments, setAllComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
   const { article_id } = useParams();
 

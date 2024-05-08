@@ -42,7 +42,6 @@ export function patchArticleVote(articleID, newVote) {
       newVote
     )
     .then((response) => {
-      console.log(response);
       return response;
     });
 }
@@ -83,11 +82,15 @@ export function getLoginUserData(username){
 export function postComment(articleID,newComment){
   return axios.post(`https://news-app-u364.onrender.com/api/articles/${articleID}/comments`, newComment)
   .then((response)=>{
-    console.log(response.data)
     return response.data.postedComment
   })
   .catch((error) => {
     console.error("Post Comment failed:", error);
     throw error;
   });
+}
+
+export function deleteComment(commentID){
+  return axios.delete(`https://news-app-u364.onrender.com/api/comments/${commentID}`)
+  .then((res)=>{console.log(res)})
 }

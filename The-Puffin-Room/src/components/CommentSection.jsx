@@ -33,6 +33,12 @@ function CommentSection({ article_id }) {
     });
   };
 
+  const onDelete = (commentId) => {
+    setAllComments(allComments.filter((comment) => {
+      return comment.comment_id !== commentId;
+    }));
+  };
+
   return (
     <div>
       <div className="commentTitle">
@@ -43,7 +49,7 @@ function CommentSection({ article_id }) {
       </div>
       {allComments.map((comment) => (
         <div key={comment.comment_id}>
-          <CommentCard comment={comment} />
+          <CommentCard comment={comment} onDelete={onDelete} />
         </div>
       ))}
 
