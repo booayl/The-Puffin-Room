@@ -1,7 +1,6 @@
-import { useEffect, useContext, useState } from "react";
+import {  useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { getLoginUserData } from "../api";
 import { LoginContext } from "../contexts/LoginContext";
 
 function HeaderBar() {

@@ -94,3 +94,24 @@ export function deleteComment(commentID){
   return axios.delete(`https://news-app-u364.onrender.com/api/comments/${commentID}`)
   .then((res)=>{console.log(res)})
 }
+
+export function getTopics(){
+  return axios.get(`https://news-app-u364.onrender.com/api/topics`)
+  .then((res) => {
+    return res.data.topics;
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
+
+export function getArticleByTopic(topic){
+  return axios
+    .get(`https://news-app-u364.onrender.com/api/articles?topic=${topic}`)
+    .then((res) => {
+      return res.data.allArticles;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
