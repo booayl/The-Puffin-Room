@@ -9,7 +9,7 @@ function Login(){
 
     const navigate = useNavigate();
     const [message, setMessage] = useState("");
-    const {user, setUser, token, setToken} = useContext(LoginContext)
+    const {user, setUser, setToken} = useContext(LoginContext)
 
     const handleSubmit = (event) => {
         event.preventDefault();

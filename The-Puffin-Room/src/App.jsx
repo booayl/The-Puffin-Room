@@ -1,5 +1,4 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import "./App.css";
 
 import HeaderBar from "./components/0.HeaderBar";
@@ -12,30 +11,6 @@ import Login from "./components/8.Login";
 import { LoginProvider } from "./contexts/LoginContext";
 
 function App() {
-  // const navigate = useNavigate();
-
-  // const [token, setToken] = useState(null);
-  // const [user, setUser] = useState("");
-  // const [message, setMessage] = useState("");
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   getUsers().then((usersData) => {
-  //     const foundUser = usersData.find(
-  //       (userData) => userData.username === user
-  //     );
-
-  //     if (foundUser) {
-  //       loginUser({ user }).then((token) => {
-  //         setToken(token);
-  //         navigate(-1);
-  //       });
-  //     } else {
-  //       setMessage("Username not found. Please register.");
-  //     }
-  //   });
-  // };
-
   return (
     <LoginProvider>
       <main>
