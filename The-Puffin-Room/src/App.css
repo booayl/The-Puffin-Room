@@ -16,6 +16,17 @@
   z-index: -1;
 }
 
+h4{
+  text-align: left;
+  padding-left: 30px;
+
+  hr{
+    margin-left:0;
+    border: 1px solid #1b90c6;;
+    width: 30%;
+}
+}
+
 .headerBar {
   position: fixed;
   top: 0;
@@ -80,7 +91,7 @@
 }
 
 .loginButton {
-  color: inherit;
+  border: solid 0.2px #333;
   text-decoration: none;
   background-color: #1b90c6;
   padding: 8px 15px 8px 15px;
@@ -123,9 +134,9 @@
     display: flex;
     text-align: left;
     flex-direction: column;
-  
+
     border-bottom: 1px dotted grey;
-  
+
     img {
       margin-right: 30px;
       border-radius: 10%;
@@ -152,9 +163,10 @@
 }
 
 .commentCard {
-  border-top: 1px dotted grey;
+  border-bottom: 1px dotted grey;
   margin: 20px;
   padding-top: 10px;
+  padding-bottom: 15px;
   margin-left: 10%;
   margin-right: 10%;
   img {
@@ -172,6 +184,28 @@
     height: 20px;
   }
   display: inline-flex;
+}
+
+.commentTitle{
+  display: inline-flex;
+  align-items:last baseline;
+  margin: 0;
+  margin-top: 15px;
+
+
+  h4{
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 10px;
+
+    hr{
+      width: 150%;
+    }
+  }
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .pagination {
@@ -200,4 +234,47 @@
   color: #fff;
   border-radius: 80%;
   padding: 5px 10px;
+}
+
+.newCommentCard {
+  display: inline-flex;
+  margin-left: 30px;
+  img {
+    border: solid 0.2px #333;
+    border-radius: 100%;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+  }
+
+  button{
+  color: inherit;
+  text-decoration: none;
+  background-color: #1b90c6;
+  padding: 8px 15px 8px 15px;
+  color: #fff;
+  border-radius: 5%;
+  }
+}
+
+input#newComment{
+border-radius: 10px;
+height: 5vh;
+width: 60vw;
+margin-right: 8px;
+}
+
+.alertBox{
+  text-decoration: none;
+  border: inset 0.5px #1B90C6;
+  background-color: #D0F9FC;
+  opacity: 0.5;
+  padding: 5px 30px 5px 30px;
+  border-radius: 10px;
+  color: #052B5F;
+}
+
+.newComment{
+  text-align: left;
 }

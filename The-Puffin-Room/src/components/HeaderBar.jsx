@@ -5,22 +5,15 @@ import { getLoginUserData } from "../api";
 import { LoginContext } from "../contexts/LoginContext";
 
 function HeaderBar() {
-  const { user, setUser, token, setToken } = useContext(LoginContext);
-  const [loginUser, setLoginUser] = useState({});
-
-  useEffect(() => {
-    getLoginUserData(user).then((userData) => {
-      setLoginUser(userData);
-    });
-  }, [user, setLoginUser]);
+  const { loggedUser, token,} = useContext(LoginContext);
 
   return (
     <div className="headerBar">
       <div className="headerSpaceHolder">
         {token ? (
           <div>
-            <img src={loginUser.avatar_url} />
-            <span>{loginUser.name.split(" ")[0]}</span>
+            <img src={loggedUser.avatar_url} />
+            <span>{loggedUser.name.split(" ")[0]}</span>
           </div>
         ) : (
           <img src="../Favicon/favicon-32x32.png" />
