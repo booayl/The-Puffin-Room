@@ -1,11 +1,11 @@
-import { getAricleByID } from "../api";
+import { getAricleByID } from "../api.js";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import dateFormat from "dateformat";
-import CommentSection from "./5.CommentSection";
-import { getCommentsByArticleID } from "../api";
-import ArticleVotes from "./7.ArticleVotes";
-import Loading from "./0.Loading.jsx";
+import CommentSection from "./CommentSection.jsx";
+import { getCommentsByArticleID } from "../api.js";
+import ArticleVotes from "./ArticleVotes.jsx";
+import Loading from "./Loading.jsx";
 
 function ArticleByID() {
   const [article, setArticle] = useState([]);

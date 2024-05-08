@@ -1,12 +1,12 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 
-import HeaderBar from "./components/0.HeaderBar";
-import Home from "./components/1.Home";
-import ArticlesList from "./components/2.ArticlesList";
-import ArticleByID from "./components/4.ArticleByID";
-import GranimCanvas from "./components/0.GranimCanvas";
-import Login from "./components/8.Login";
+import HeaderBar from "./components/HeaderBar";
+import Home from "./components/Home";
+import ArticlesList from "./components/ArticlesList";
+import ArticleByID from "./components/ArticleByID";
+import GranimCanvas from "./components/GranimCanvas";
+import Login from "./components/Login";
 
 import { LoginProvider } from "./contexts/LoginContext";
 

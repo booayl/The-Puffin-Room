@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
-import ArticleCard from "./3.ArticleCard.jsx";
-import Loading from "./0.Loading.jsx";
+import ArticleCard from "./ArticleCard.jsx";
+import Loading from "./Loading.jsx";
 import { getArticleList } from "../api.js";
 
 function ArticlesList() {

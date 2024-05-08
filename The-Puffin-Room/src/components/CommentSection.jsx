@@ -1,4 +1,4 @@
-import CommentCard from "./6.CommentCard";
+import CommentCard from "./CommentCard";
 
 function CommentSection({ allComments }) {
   return (
