@@ -1,13 +1,16 @@
 import axios from "axios";
 
-export function getArticleList(page) {
+export function getArticleList(params) {
   return axios
-    .get(`https://news-app-u364.onrender.com/api/articles?p=${page}`)
+    .get(`https://news-app-u364.onrender.com/api/articles`, {
+      params: params,
+    })
     .then((res) => {
       return res.data.allArticles;
     })
     .catch((error) => {
       console.log(error);
+      throw error;
     });
 }
 
@@ -18,7 +21,7 @@ export function getAricleByID(articleID) {
       return res.data.article;
     })
     .catch((error) => {
-      console.log(error);
+      throw error;
     });
 }
 
@@ -31,7 +34,7 @@ export function getCommentsByArticleID(articleID) {
       return res.data.allComments;
     })
     .catch((error) => {
-      console.log(error);
+      throw error;
     });
 }
 
@@ -53,7 +56,7 @@ export function getUsers() {
       return res.data.users;
     })
     .catch((error) => {
-      console.log(error);
+      throw error;
     });
 }
 
@@ -69,49 +72,46 @@ export function loginUser(credentials) {
     });
 }
 
-export function getLoginUserData(username){
-    return axios.get(`https://news-app-u364.onrender.com/api/users/${username}`)
-    .then((res) => {
-        return res.data.user;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-}
-
-export function postComment(articleID,newComment){
-  return axios.post(`https://news-app-u364.onrender.com/api/articles/${articleID}/comments`, newComment)
-  .then((response)=>{
-    return response.data.postedComment
-  })
-  .catch((error) => {
-    console.error("Post Comment failed:", error);
-    throw error;
-  });
-}
-
-export function deleteComment(commentID){
-  return axios.delete(`https://news-app-u364.onrender.com/api/comments/${commentID}`)
-  .then((res)=>{console.log(res)})
-}
-
-export function getTopics(){
-  return axios.get(`https://news-app-u364.onrender.com/api/topics`)
-  .then((res) => {
-    return res.data.topics;
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-}
-
-export function getArticleByTopic(topic){
+export function getLoginUserData(username) {
   return axios
-    .get(`https://news-app-u364.onrender.com/api/articles?topic=${topic}`)
+    .get(`https://news-app-u364.onrender.com/api/users/${username}`)
     .then((res) => {
-      return res.data.allArticles;
+      return res.data.user;
     })
     .catch((error) => {
-      console.log(error);
+      throw error;
+    });
+}
+
+export function postComment(articleID, newComment) {
+  return axios
+    .post(
+      `https://news-app-u364.onrender.com/api/articles/${articleID}/comments`,
+      newComment
+    )
+    .then((response) => {
+      return response.data.postedComment;
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
+
+export function deleteComment(commentID) {
+  return axios
+    .delete(`https://news-app-u364.onrender.com/api/comments/${commentID}`)
+    .then((res) => {
+      console.log(res);
+    });
+}
+
+export function getTopics() {
+  return axios
+    .get(`https://news-app-u364.onrender.com/api/topics`)
+    .then((res) => {
+      return res.data.topics;
+    })
+    .catch((error) => {
+      throw error;
     });
 }

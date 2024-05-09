@@ -8,6 +8,7 @@ import "./css/NavigationBar.css"
 import "./css/Article.css"
 import "./css/Comment.css"
 import "./css/Pagination.css"
+import "./css/FilterBar.css"
 
 import HeaderBar from "./components/HeaderBar";
 import Home from "./components/Home";
@@ -15,7 +16,6 @@ import ArticlesList from "./components/ArticlesList";
 import ArticleByID from "./components/ArticleByID";
 import GranimCanvas from "./components/GranimCanvas";
 import Login from "./components/Login";
-import ArticleByTopics from "./components/ArticleByTopics";
 
 import { LoginProvider } from "./contexts/LoginContext";
 import { ThemeContext } from "./contexts/ThemeContext";
@@ -35,7 +35,7 @@ function App() {
               <Route path="/articles" element={<ArticlesList />} />
               <Route path="/article/:article_id" element={<ArticleByID />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/articles/:topic" element={<ArticleByTopics />} />
+              <Route path="/articles/:topic" element={<ArticlesList />} />
             </Routes>
           </div>
 
