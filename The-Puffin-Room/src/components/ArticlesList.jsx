@@ -1,28 +1,55 @@
 import { useEffect, useState, useCallback } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 import ArticleCard from "./ArticleCard.jsx";
 import Loading from "./Loading.jsx";
 import { getArticleList } from "../api.js";
 import NavigationBar from "./NavigationBar";
 
 function ArticlesList() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const sortByQuery = searchParams.get("sort_by") || "date" ;
+  const orderQuery = searchParams.get("order") || "desc";
+  const pageQuery = searchParams.get("p") || 1
+
   const [articles, setArticles] = useState([]);
-  const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState( pageQuery );
   const [totalPages, setTotalPages] = useState(1);
+  const [sorting, setSorting] = useState(sortByQuery);
+  const [order, setOrder] = useState(orderQuery);
+
+  const { topic } = useParams();
+
+  const sortingOptions = {
+    date: "created_at",
+    commentCount: "comment_count",
+    votes: "votes",
+    author: "author",
+  };
 
   const getArticles = useCallback(() => {
-    setIsLoading(true);
-    getArticleList(page)
+    const params = {
+      p: page,
+      topic: topic,
+      sort_by: sortingOptions[sorting],
+      order: order,
+    };
+
+    getArticleList(params)
       .then((allArticles) => {
         setArticles(allArticles);
         setTotalPages(Math.ceil(allArticles[0].total_count / 10));
-        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching articles:", error);
-        setIsLoading(false);
       });
-  }, [page]);
+
+      const newParams = new URLSearchParams(searchParams);
+      newParams.set("sort_by", sorting);
+      newParams.set("order", order);
+      newParams.set("p",page)
+      setSearchParams(newParams);
+  }, [page, topic, sorting, order]);
 
   useEffect(() => {
     getArticles();
@@ -38,23 +65,32 @@ function ArticlesList() {
 
   return (
     <>
-    <NavigationBar />
+      <NavigationBar />
+      <div className="filterBar">
+        <select value={sorting} onChange={(e) => setSorting(e.target.value)}>
+          <option value="date">Date</option>
+          <option value="commentCount">Comment</option>
+          <option value="author">Author</option>
+          <option value="votes">Votes</option>
+        </select>
 
-      <h2>All Articles</h2>
-      {isLoading ? (
-        <Loading isLoading={isLoading} />
-      ) : (
+        <select value={order} onChange={(e) => setOrder(e.target.value)}>
+          <option value="desc">Descending</option>
+          <option value="asc">Ascending</option>
+        </select>
+      </div>
+
         <>
           <div className="card-container">
             {articles.map((article) => (
               <div key={article.article_id}>
-                <ArticleCard article={article} setIsLoading={setIsLoading} />
+                <ArticleCard article={article}/>
               </div>
             ))}
           </div>
           <div className="pagination">
             <button onClick={prevPage} disabled={page === 1}>
-            ←
+              ←
             </button>
             {[...Array(totalPages).keys()].map((pageNum) => (
               <button
@@ -66,11 +102,10 @@ function ArticlesList() {
               </button>
             ))}
             <button onClick={nextPage} disabled={page === totalPages}>
-            →
+              →
             </button>
           </div>
         </>
-      )}
     </>
   );
 }
