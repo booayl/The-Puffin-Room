@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import NavigationBar from "./NavigationBar";
 
 function Home() {
   return (
     <>
+    <NavigationBar />
     </>
   );
 }

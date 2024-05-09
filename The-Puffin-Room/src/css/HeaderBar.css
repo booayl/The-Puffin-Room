@@ -1,0 +1,73 @@
+.headerBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    color: #333;
+    box-shadow: 0 4px 5px -5px gray;
+    padding: 15px;
+    margin-bottom: 10px;
+  
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: center;
+  }
+  
+  .headerTools {
+    grid-area: 1 / 5 / 2 / 6;
+    align-items: end;
+    display: flex;
+    button {
+      margin-left: 5px;
+    }
+    img {
+      margin-right: 15px;
+      border-radius: 100%;
+      width: 35px;
+      height: 35px;
+    }
+  }
+  
+  .headerTitle {
+    font-family: "MostraOneBold", sans-serif;
+    color: inherit;
+    text-decoration: none;
+    text-align: center;
+    grid-area: 1 / 2 / 2 / 5;
+  }
+  
+  .headerSpaceHolder {
+    grid-area: 1 / 1 / 2 / 2;
+    img {
+      margin-right: 10px;
+      border: solid #333;
+      border-radius: 100%;
+      width: 35px;
+      height: 35px;
+    }
+    span {
+      position: relative;
+      top: -0.8em;
+    }
+  }
+  
+  .titleThe {
+    font-size: smaller;
+  }
+  
+  .titlePuffinRoom {
+    font-size: x-large;
+  }
+  
+  .loginButton {
+    border: solid 0.2px #333;
+    text-decoration: none;
+    background-color: #1b90c6;
+    padding: 8px 15px 8px 15px;
+    color: #fff;
+    border-radius: 5%;
+  }

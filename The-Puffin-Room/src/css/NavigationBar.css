@@ -1,0 +1,24 @@
+.navigationBar {
+    margin-top: 100px;
+    width: 100%;
+    color: #333;
+  }
+  
+  .topicTab {
+    padding: 5px 10px 5px 10px;
+    margin: 0px 20px 0px 20px;
+    text-decoration: none;
+    border: solid #1b90c6;
+    border-radius: 50px;
+    color: #052b5f;
+  }
+  
+  .activeTopicTab {
+    padding: 5px 10px 5px 10px;
+    margin: 0px 20px 0px 20px;
+    text-decoration: none;
+    border: solid #333;
+    background-color: #1b90c6;
+    border-radius: 50px;
+    color: #fff;
+  }

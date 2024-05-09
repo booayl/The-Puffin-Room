@@ -2,9 +2,17 @@ import {  useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { LoginContext } from "../contexts/LoginContext";
+import { ThemeContext } from '../contexts/ThemeContext';
 
 function HeaderBar() {
   const { loggedUser, token,} = useContext(LoginContext);
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const toggleTheme = () => {
+    setTheme((currTheme) => {
+      return currTheme === 'light' ? 'dark' : 'light';
+    });
+  };
 
   return (
     <div className="headerBar">
@@ -26,6 +34,7 @@ function HeaderBar() {
       </Link>
 
       <div className="headerTools">
+      <img onClick={toggleTheme} src="https://cdn3.iconfinder.com/data/icons/meteocons/512/sun-symbol-512.png"/>
         {token ? (
           <Link to="/" className="loginButton">
             Write

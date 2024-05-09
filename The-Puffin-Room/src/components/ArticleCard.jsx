@@ -13,7 +13,7 @@ function ArticleCard({ article }) {
         <h1>{article.title}</h1>
         <>By {article.author}</>
         <p>{date}</p>
-        <Link to = {`/article/${article.article_id}`}>Read More</Link>
+        <Link to = {`/article/${article.article_id}`}>→</Link>
       </div>
     </div>
   );

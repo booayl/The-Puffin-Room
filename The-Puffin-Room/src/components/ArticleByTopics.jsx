@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ArticleCard from "./ArticleCard.jsx";
 import Loading from "./Loading.jsx";
 import {getArticleByTopic } from "../api.js";
+import NavigationBar from "./NavigationBar";
 
 function ArticleByTopics() {
   const [articles, setArticles] = useState([]);
@@ -41,6 +42,7 @@ function ArticleByTopics() {
 
   return (
     <>
+    <NavigationBar />
       <h2>{reformattedTopic}</h2>
       {isLoading ? (
         <Loading isLoading={isLoading} />

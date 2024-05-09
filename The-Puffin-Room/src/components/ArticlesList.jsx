@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import ArticleCard from "./ArticleCard.jsx";
 import Loading from "./Loading.jsx";
 import { getArticleList } from "../api.js";
+import NavigationBar from "./NavigationBar";
 
 function ArticlesList() {
   const [articles, setArticles] = useState([]);
@@ -37,6 +38,8 @@ function ArticlesList() {
 
   return (
     <>
+    <NavigationBar />
+
       <h2>All Articles</h2>
       {isLoading ? (
         <Loading isLoading={isLoading} />

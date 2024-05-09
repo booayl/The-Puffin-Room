@@ -1,0 +1,18 @@
+.darkMode {
+    color: #ffffff;
+    .topicTab {
+      color: #ffffff;
+    }
+    .headerBar {
+      background-color: #11151c;
+      color: #ffffff;
+    }
+  
+    .articleCard {
+      a {
+        color: #ffffff;
+        border: solid 1.5px #ffffff;
+      }
+    }
+  }
+  
