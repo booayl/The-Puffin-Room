@@ -23,7 +23,7 @@ function HeaderBar() {
             <span>{loggedUser.name.split(" ")[0]}</span>
           </div>
         ) : (
-          <img src="../Favicon/favicon-32x32.png" />
+          <img src="https://i.ibb.co/dPqWWSm/favicon-32x32.png" />
         )}
       </div>
 
