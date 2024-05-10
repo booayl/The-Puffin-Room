@@ -35,7 +35,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/articles" element={<ArticlesList />} />
               <Route path="/article/:article_id" element={<ArticleByID />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/Login" element={<Login />} />
               <Route path="/articles/:topic" element={<ArticlesList />} />
               <Route path="*" element={<ErrorBox status={404} message={"Page not found"}/>} />
             </Routes>

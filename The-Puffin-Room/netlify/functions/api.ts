@@ -6,7 +6,7 @@ const router = Router();
 
 api.use("/api/", router);
 
-router.get('/login', (req, res) => {
+router.get('/Login', (req, res) => {
     res.send({
       token: 'test123'
     });
