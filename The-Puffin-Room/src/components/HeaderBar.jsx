@@ -40,7 +40,7 @@ function HeaderBar() {
             Write
           </Link>
         ) : (
-          <Link to="/Login" className="loginButton">
+          <Link to="/login" className="loginButton">
             Login
           </Link>
         )}
