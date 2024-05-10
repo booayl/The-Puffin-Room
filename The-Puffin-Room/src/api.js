@@ -9,7 +9,6 @@ export function getArticleList(params) {
       return res.data.allArticles;
     })
     .catch((error) => {
-      console.log(error);
       throw error;
     });
 }
@@ -21,7 +20,7 @@ export function getAricleByID(articleID) {
       return res.data.article;
     })
     .catch((error) => {
-      throw error;
+      throw error
     });
 }
 
@@ -100,8 +99,16 @@ export function postComment(articleID, newComment) {
 export function deleteComment(commentID) {
   return axios
     .delete(`https://news-app-u364.onrender.com/api/comments/${commentID}`)
-    .then((res) => {
-      console.log(res);
+    .then(response => response.data)
+    .catch((error) => {
+      console.log(error)
+      if (error.response) {
+        return Promise.reject(error.response);
+      } else if (error.request) {
+        return Promise.reject({ status: 503, message: "Network error. Please check your internet connection." });
+      } else {
+        return Promise.reject({ status: 500, message: "An unexpected error occurred. Please try again later." });
+      }
     });
 }
 

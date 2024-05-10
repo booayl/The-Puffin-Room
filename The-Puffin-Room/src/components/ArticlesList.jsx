@@ -1,9 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import ArticleCard from "./ArticleCard.jsx";
-import Loading from "./Loading.jsx";
 import { getArticleList } from "../api.js";
 import NavigationBar from "./NavigationBar";
+import ErrorBox from "./ErrorBox.jsx";
 
 function ArticlesList() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -17,6 +17,7 @@ function ArticlesList() {
   const [totalPages, setTotalPages] = useState(1);
   const [sorting, setSorting] = useState(sortByQuery);
   const [order, setOrder] = useState(orderQuery);
+  const [errorData, setErrorData] = useState({ status: 0, message: "" });
 
   const { topic } = useParams();
 
@@ -41,7 +42,11 @@ function ArticlesList() {
         setTotalPages(Math.ceil(allArticles[0].total_count / 10));
       })
       .catch((error) => {
-        console.error("Error fetching articles:", error);
+        setErrorData({
+          ...errorData,
+          status: error.status,
+          message: error.message,
+        });
       });
 
       const newParams = new URLSearchParams(searchParams);
@@ -62,6 +67,10 @@ function ArticlesList() {
   const prevPage = () => {
     if (page > 1) setPage(page - 1);
   };
+
+  if (errorData.status !== 0) {
+      return <ErrorBox status={errorData.status} message={errorData.message} />;
+    }
 
   return (
     <>

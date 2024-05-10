@@ -30,3 +30,45 @@ h4 {
 .content {
   padding-top: 16vh;
 }
+
+.alertBox {
+  text-decoration: none;
+  border: inset 0.5px #1b90c6;
+  background-color: #d0f9fc;
+  opacity: 0.5;
+  padding: 5px 30px 5px 30px;
+  border-radius: 10px;
+  color: #052b5f;
+}
+
+.alertBoxRed{
+  margin: auto;
+  max-width: 70vw;
+  text-decoration: none;
+  opacity: 0.5;
+  padding: 5px 30px 5px 30px;
+  border-radius: 10px;
+  color: #7A0A28;
+  border: inset 0.5px #931029;
+  background-color:#FFC7AE;
+}
+
+.errorPage{
+  padding-top: 10vh;
+  img{
+    max-width: 350px;
+    padding-bottom: 5vh;
+    float: left
+  }
+  h1{
+    font-weight: bold;
+    font-size: 100px;
+    margin-bottom: 0px;
+    color: #73BCFF;
+  }
+  p{
+    font-weight: 500;
+    font-size: 30px;
+    color: #167BFF;
+  }
+}
