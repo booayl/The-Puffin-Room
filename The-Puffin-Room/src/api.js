@@ -61,7 +61,7 @@ export function getUsers() {
 
 export function loginUser(credentials) {
   return axios
-    .get("/api/login")
+    .post("/api/login",credentials)
     .then((response) => {
       return response.data.token;
     })
