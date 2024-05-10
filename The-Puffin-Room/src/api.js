@@ -61,7 +61,7 @@ export function getUsers() {
 
 export function loginUser(credentials) {
   return axios
-    .post("http://localhost:8080/login", credentials)
+    .get("/api/login")
     .then((response) => {
       return response.data.token;
     })

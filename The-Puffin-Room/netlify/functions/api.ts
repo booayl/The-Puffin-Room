@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Router } from "express";
 import serverless from "serverless-http";
 
 const api = express();
@@ -13,4 +13,3 @@ router.get('/login', (req, res) => {
   });
 
 export const handler = serverless(api);
-
