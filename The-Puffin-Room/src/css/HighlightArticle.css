@@ -1,0 +1,46 @@
+.highlightArticle {
+  display: flex;
+  justify-content: center;
+  word-wrap: break-word;
+  align-items: center;
+  margin: 20px;
+  width: 95vw;
+  height: 90vh;
+  margin: auto;
+  background: black;
+  color: #fff;
+  align-self: center;
+  padding-right: 5vw;
+  img {
+    width: 50vw;
+    height: 90vh;
+    padding-right: 5vw;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .topic {
+    font-weight: bolder;
+    color: #c54f64;
+    border: solid 1.5px #fff;
+    background-color: #fff;
+    padding: 5px;
+    width: 150px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .highlightArticle {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    word-wrap: break-word;
+  }
+}

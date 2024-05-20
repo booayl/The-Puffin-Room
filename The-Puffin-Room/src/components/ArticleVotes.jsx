@@ -8,7 +8,7 @@ function ArticleVotes({articleVotes}){
 
     const [votes,setVotes] = useState(articleVotes)
     const [clickedOnce, setClickedOnce] = useState(false);
-    const [iconUrl, setIconUrl] = useState("https://i.ibb.co/7Wvj2Pm/votes.png");
+    const [iconUrl, setIconUrl] = useState("https://i.ibb.co/qRdf45b/white-heart.png");
     const [errorData, setErrorData] = useState({ status: 0, message: "" });
 
     useEffect(() => {
@@ -34,11 +34,11 @@ function ArticleVotes({articleVotes}){
     const handleClick = () => {
         if (!clickedOnce) {
             handleVote();
-            setIconUrl("https://i.ibb.co/j3qPXDg/upvote.png");
+            setIconUrl("https://i.ibb.co/tHRcH6j/red-heart.png");
             setClickedOnce(true);
         } else {
             cancelVote();
-            setIconUrl("https://i.ibb.co/7Wvj2Pm/votes.png");
+            setIconUrl("https://i.ibb.co/qRdf45b/white-heart.png");
             setClickedOnce(false);
         }
     };

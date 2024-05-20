@@ -1,5 +1,10 @@
 .darkMode {
     color: #ffffff;
+
+    h2{
+      color: #ffffff;
+    }
+
     .topicTab {
       color: #ffffff;
     }
@@ -13,6 +18,15 @@
         color: #ffffff;
         border: solid 1.5px #ffffff;
       }
+    }
+
+    .navigationBar {
+      color: #ffffff;
+      background-color:#333;
+    }
+    
+    .topicTab {
+      color: #ffffff;
     }
   }
   

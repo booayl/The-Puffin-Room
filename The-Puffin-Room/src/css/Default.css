@@ -4,6 +4,11 @@
   font-family: "Namdhinggo", sans-serif;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 #granim-canvas {
   width: 200vw;
   height: 200vh;
@@ -25,10 +30,6 @@ h4 {
     border: 1px solid #1b90c6;
     width: 30%;
   }
-}
-
-.content {
-  padding-top: 16vh;
 }
 
 .alertBox {

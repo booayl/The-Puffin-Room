@@ -59,18 +59,6 @@ export function getUsers() {
     });
 }
 
-export function loginUser(credentials) {
-  return axios
-    .post("/login",credentials)
-    .then((response) => {
-      return response.data.token;
-    })
-    .catch((error) => {
-      console.error("Login failed:", error);
-      throw error;
-    });
-}
-
 export function getLoginUserData(username) {
   return axios
     .get(`https://news-app-u364.onrender.com/api/users/${username}`)
@@ -101,7 +89,6 @@ export function deleteComment(commentID) {
     .delete(`https://news-app-u364.onrender.com/api/comments/${commentID}`)
     .then(response => response.data)
     .catch((error) => {
-      console.log(error)
       if (error.response) {
         return Promise.reject(error.response);
       } else if (error.request) {
@@ -120,5 +107,63 @@ export function getTopics() {
     })
     .catch((error) => {
       throw error;
+    });
+}
+
+export function postArticle(newArticle){
+  return axios
+  .post(
+    `https://news-app-u364.onrender.com/api/articles`,
+    newArticle
+  )
+  .then((response) => {
+    return response.data.newArticle;
+  })
+  .catch((error) => {
+    throw error;
+  });
+}
+
+export function postTopic(newTopic){
+  return axios
+  .post(
+    `https://news-app-u364.onrender.com/api/topics`,
+    newTopic
+  )
+  .then((response) => {
+    return response.data.newTopic;
+  })
+  .catch((error) => {
+    throw error;
+  });
+}
+
+export function deleteArticle(articleID){
+  return axios
+  .delete(`https://news-app-u364.onrender.com/api/articles/${articleID}`)
+  .then(response => response.data)
+    .catch((error) => {
+      if (error.response) {
+        return Promise.reject(error.response);
+      } else if (error.request) {
+        return Promise.reject({ status: 503, message: "Network error. Please check your internet connection." });
+      } else {
+        return Promise.reject({ status: 500, message: "An unexpected error occurred. Please try again later." });
+      }
+    });
+}
+
+export function deleteTopic(topic_slug){
+  return axios
+  .delete(`https://news-app-u364.onrender.com/api/topics/${topic_slug}`)
+  .then(response => response.data)
+    .catch((error) => {
+      if (error.response) {
+        return Promise.reject(error.response);
+      } else if (error.request) {
+        return Promise.reject({ status: 503, message: "Network error. Please check your internet connection." });
+      } else {
+        return Promise.reject({ status: 500, message: "An unexpected error occurred. Please try again later." });
+      }
     });
 }

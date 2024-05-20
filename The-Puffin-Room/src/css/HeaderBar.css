@@ -5,9 +5,8 @@
     width: 100%;
     background-color: white;
     color: #333;
-    box-shadow: 0 4px 5px -5px gray;
+    box-shadow: 0 2px 5px -5px gray;
     padding: 15px;
-    margin-bottom: 10px;
   
     display: grid;
     grid-template-columns: repeat(5, 1fr);

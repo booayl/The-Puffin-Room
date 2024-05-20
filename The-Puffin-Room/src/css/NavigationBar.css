@@ -1,14 +1,17 @@
 .navigationBar {
-    width: 100%;
-    color: #333;
-    margin-bottom: 6vh;
-  }
+  width: 100vw;
+  color: #333;
+  background-color: white;
+  box-shadow: 0 4px 5px -5px gray;
+  padding: 15px;
+padding-top: 90px;
+  box-sizing: border-box; 
+}
   
   .topicTab {
     padding: 5px 10px 5px 10px;
     margin: 0px 20px 0px 20px;
     text-decoration: none;
-    border: solid #1b90c6;
     border-radius: 50px;
     color: #052b5f;
   }
@@ -17,7 +20,6 @@
     padding: 5px 10px 5px 10px;
     margin: 0px 20px 0px 20px;
     text-decoration: none;
-    border: solid #333;
     background-color: #1b90c6;
     border-radius: 50px;
     color: #fff;

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { loginUser, getUsers, getLoginUserData } from "../api";
+import { getUsers, getLoginUserData } from "../api";
 import { useContext, useState } from "react";
 import ErrorBox from "./ErrorBox.jsx";
 
@@ -24,11 +24,8 @@ function Login() {
         if (foundUser) {
           getLoginUserData(user).then((loggedUserData) => {
             setloggedUser({ ...loggedUser, ...loggedUserData });
-
-            loginUser({ user }).then((token) => {
-              setToken(token);
-              navigate(-1);
-            });
+            setToken(true);
+            navigate(-1);
           });
         } else {
           setMessage("Username not found. Please register.");

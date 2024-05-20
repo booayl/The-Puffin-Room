@@ -57,6 +57,7 @@ function CommentSection({ article_id }) {
       });
   };
 
+  
 
   return (
     <div>
@@ -65,7 +66,7 @@ function CommentSection({ article_id }) {
           Comments
           <hr />
         </h4>
-        <img src="https://i.ibb.co/xXxtHcg/comments.png" />
+        <img src="https://i.ibb.co/NTNVtdQ/Asset-4.png" />
         {allComments.length}
       </div>
       {allComments.map((comment) => (
@@ -86,7 +87,7 @@ function CommentSection({ article_id }) {
           ) : (
             <form onSubmit={handleSubmit} className="commentInputBox">
               <input
-                placeholder="Post A Comment"
+                placeholder="Write a comment ..."
                 id="newComment"
                 type="text"
                 onChange={(event) => {
@@ -100,7 +101,7 @@ function CommentSection({ article_id }) {
         </div>
       ) : (
         <div className="newCommentCard">
-          <img src="../Favicon/favicon-32x32.png" />
+          <img src="https://i.ibb.co/dPqWWSm/favicon-32x32.png" />
           <Link to="/Login" className="alertBox">Login To Comment</Link>
         </div>
       )}
