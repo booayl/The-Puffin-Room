@@ -19,8 +19,8 @@
   img {
     margin-right: 30px;
     border-radius: 10%;
-    max-width: 290px;
-    max-height: 205px;
+    width: 280px;
+    height: 205px;
   }
 
   a {
@@ -37,6 +37,7 @@
     margin-right: 0px !important;
     width: 20px;
     height: 20px;}
+
     span{
       padding-right: 20px;
     }

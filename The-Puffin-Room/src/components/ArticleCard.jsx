@@ -58,6 +58,13 @@ function ArticleCard({ article }) {
             <h1>{article.title}</h1>
             <>By {article.author}</>
             <p>{date}</p>
+            <div className="icon">
+            <img src="https://i.ibb.co/tHRcH6j/red-heart.png" />
+      <span>{article.votes}</span>
+
+      <img src="https://i.ibb.co/NTNVtdQ/Asset-4.png" />
+        <span>{article.comment_count}</span></div>
+
             <Link to={`/article/${article.article_id}`}>→</Link>
           </div>
         </>

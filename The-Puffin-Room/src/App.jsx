@@ -12,6 +12,8 @@ import "./css/FilterBar.css";
 import "./css/HighlightArticle.css";
 import "./css/mostVotedArticle.css";
 import "./css/Loading.css";
+import "./css/NewestArticle.css";
+import "./css/TopicTop.css";
 
 import HeaderBar from "./components/HeaderBar";
 import Home from "./components/Home";
@@ -22,6 +24,7 @@ import Login from "./components/Login";
 import ErrorBox from "./components/ErrorBox";
 import PostArticle from "./components/PostArticle";
 import NavigationBar from "./components/NavigationBar";
+import Footer from "./components/Footer";
 
 import { LoginProvider } from "./contexts/LoginContext";
 import { ThemeContext } from "./contexts/ThemeContext";
@@ -52,6 +55,7 @@ function App() {
               />
             </Routes>
           </div>
+          <Footer />
           <GranimCanvas />
         </main>
       </LoginProvider>

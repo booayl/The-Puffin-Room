@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 
-function HighlightArticle({ article }) {
+function TopicTop({ article }) {
 
   const date = new Date(article.created_at).toDateString().split(' ');
   const formattedDate = `${date[1]} ${date[2]}, ${date[3]}`;
 
   return (
-    <div className="highlightArticle">
+    <div className="topicTop">
       <img src={article.article_img_url} />
-      <div className="highlightArticleData">
+      <div className="topicTopData">
         <p className="topic">
-          TALK OF THE TOWN
+        {article.topic}
         </p>
         <div>{formattedDate}</div>
         <Link to={`/article/${article.article_id}`}><h1>{article.title}</h1></Link>
@@ -20,4 +20,4 @@ function HighlightArticle({ article }) {
   );
 }
 
-export default HighlightArticle;
+export default TopicTop;

@@ -28,5 +28,14 @@
     .topicTab {
       color: #ffffff;
     }
+
+    .pagination button {
+      color: #ffffff;
+    }
+
+    .pagination .current-page {
+      background-color: #fff;
+      color: #333;
+    }
   }
   

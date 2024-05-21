@@ -1,11 +1,13 @@
 import { useEffect, useState, useCallback, useContext } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import ArticleCard from "./ArticleCard.jsx";
-import { getArticleList, deleteTopic } from "../api.js";
+import { getArticleList, deleteTopic, getTopics } from "../api.js";
 import ErrorBox from "./ErrorBox.jsx";
 import Loading from "./Loading.jsx";
 
-import { RenderContext } from "../contexts/RenderContext.jsx"
+import TopicTop from "./TopicTop.jsx"
+
+import { RenderContext } from "../contexts/RenderContext.jsx";
 
 function ArticlesList() {
   const { render, setRender } = useContext(RenderContext);
@@ -22,6 +24,7 @@ function ArticlesList() {
   const [order, setOrder] = useState(orderQuery);
   const [errorData, setErrorData] = useState({ status: 0, message: "" });
   const [isLoading, setIsLoading] = useState(true);
+  const [topicDescription, setTopicDescription] = useState("");
 
   const { topic } = useParams();
   const navigate = useNavigate();
@@ -33,6 +36,7 @@ function ArticlesList() {
     author: "author",
   };
 
+ 
   const getArticles = useCallback(() => {
     const params = {
       p: page,
@@ -41,16 +45,25 @@ function ArticlesList() {
       order: order,
     };
 
+    if(topic){
+          
+      getTopics().then((allTopics) => {
+      const matchedTopic = allTopics.find((matchedTopic) => matchedTopic.slug === topic);
+
+      if (matchedTopic) {
+        setTopicDescription(matchedTopic.description);
+      }})}
+
     getArticleList(params)
       .then((allArticles) => {
         setIsLoading(true);
         setArticles(allArticles);
         if (allArticles.length === 0 && topic) {
           deleteTopic(topic)
-          .then(() => {
-            setRender((prev) => !prev);
-            navigate("/articles")
-          })
+            .then(() => {
+              setRender((prev) => !prev);
+              navigate("/articles");
+            })
             .catch((error) => {
               setErrorData({
                 ...errorData,
@@ -104,6 +117,16 @@ function ArticlesList() {
         <Loading />
       ) : (
         <div>
+          {topic && topicDescription ? (
+            <div>
+              <div className="SectionTitle">
+                <h2>{topic}</h2>
+                <h4>{topicDescription}</h4>
+              </div>
+              <TopicTop article={articles[0]} />
+            </div>
+          ) : null}
+
           <div className="filterBar">
             <select
               value={sorting}
@@ -121,32 +144,30 @@ function ArticlesList() {
             </select>
           </div>
 
-          <>
-            <div className="card-container">
-              {articles.map((article) => (
-                <div key={article.article_id}>
-                  <ArticleCard article={article} />
-                </div>
-              ))}
-            </div>
-            <div className="pagination">
-              <button onClick={prevPage} disabled={page === 1}>
-                ←
+          <div className="card-container">
+            {(articles.slice(1,articles.length)).map((article) => (
+              <div key={article.article_id}>
+                <ArticleCard article={article} />
+              </div>
+            ))}
+          </div>
+          <div className="pagination">
+            <button onClick={prevPage} disabled={page === 1}>
+              ←
+            </button>
+            {[...Array(totalPages).keys()].map((pageNum) => (
+              <button
+                key={pageNum + 1}
+                onClick={() => setPage(pageNum + 1)}
+                className={pageNum + 1 === page ? "current-page" : ""}
+              >
+                {pageNum + 1}
               </button>
-              {[...Array(totalPages).keys()].map((pageNum) => (
-                <button
-                  key={pageNum + 1}
-                  onClick={() => setPage(pageNum + 1)}
-                  className={pageNum + 1 === page ? "current-page" : ""}
-                >
-                  {pageNum + 1}
-                </button>
-              ))}
-              <button onClick={nextPage} disabled={page === totalPages}>
-                →
-              </button>
-            </div>
-          </>
+            ))}
+            <button onClick={nextPage} disabled={page === totalPages}>
+              →
+            </button>
+          </div>
         </div>
       )}
     </div>

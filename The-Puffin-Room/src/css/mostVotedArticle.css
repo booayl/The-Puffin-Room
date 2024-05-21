@@ -1,20 +1,20 @@
 .mostVotedArticle {
-  width: 100vw;
   word-wrap: break-word;
   display: inline-flex;
-  margin-left: 10px;
+  margin-bottom: 5vh;
 }
 
 .mostVotedArticleCard {
   text-align: left;
-  
-  width: 30vw;
+  width: 28vw;
   font-family: "Namdhinggo", sans-serif;
   margin-bottom: 20px;
   padding: 0px 15px 0px 15px;
-
-  border-right: 1px dotted grey;
   line-height: 30px;
+}
+
+.borderLine{
+  border-right: 1px dotted grey;
 }
 
 .mostVotedArticleCardData{
@@ -36,7 +36,7 @@
 
 .mostVotedArticleCardImg{
     width: 28vw;
-    height: 25vh;
+    height: 30vh;
 }
 
 .SectionTitle{

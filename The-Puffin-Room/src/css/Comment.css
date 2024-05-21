@@ -53,7 +53,6 @@
 
   .newCommentCard {
     display: inline-flex;
-    margin-left: 30px;
     img {
       border: solid 0.2px #333;
       border-radius: 100%;
@@ -82,9 +81,4 @@
     height: 5vh;
     width: 60vw;
     margin-right: 8px;
-  }
-
-  
-  .newComment {
-    text-align: left;
   }

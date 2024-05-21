@@ -59,8 +59,6 @@ function CommentCard({ comment }) {
       ) : (
         <p>{comment.body}</p>
       )}
-      <img src="https://i.ibb.co/7Wvj2Pm/votes.png" alt="votes" />
-      {comment.votes}
     </div>
   ) : null;
 }

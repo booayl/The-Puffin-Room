@@ -41,14 +41,14 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="login">
       <h1>Login</h1>
       {errorData.status === 0 ? (
         <div>
           <form onSubmit={handleSubmit}>
             <label htmlFor="validUser">username:</label>
             <input
-              placeholder="username"
+              placeholder="grumpy19"
               id="validUse"
               type="text"
               onChange={(event) => {
