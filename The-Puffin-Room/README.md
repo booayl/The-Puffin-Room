@@ -10,7 +10,7 @@ The Puffin Room offers various features enabling users to browse, read, and enga
 
 The application offers both dark and light themes, allowing users to switch between them based on their preference.
 
-## User Login
+### User Login
 
 The application includes user logim for commenting on articles, posting articles, and managing user-generated content.
 
@@ -22,14 +22,14 @@ The Landing Page features sections including:
 - **Forum Favorites:** showcasing the top 3 voted articles.
 - **Fresh Off The Presses:** presenting the newest article.
 
-## Articles
+### Articles
 
 Articles are presented in a list format, providing users with detailed information such as content, author, created date, likes, and comments. When the last article for a specific topic is deleted, the topic itself will be removed.
 
 ### Comments
 Comments can be found in the individual article page. Users must log in to post comments and have the ability to edit or delete their own comments.
 
-## Likes
+### Likes
 
 Users can intereact by liking an article, double clicking allows user to remove their like. Like counts is updated instantly by optimistic rendering, providing immediate feedback to users.
 
@@ -37,7 +37,7 @@ Users can intereact by liking an article, double clicking allows user to remove 
 
 Articles can be sorted by date, likes, or comments, and in ascending or descending order.
 
-## Visit The Puffin Room
+# Visit The Puffin Room
 
 Explore The Puffin Room on [Netlify](https://thepuffinroom.netlify.app/).
 
