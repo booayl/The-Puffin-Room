@@ -14,6 +14,8 @@ import "./css/mostVotedArticle.css";
 import "./css/Loading.css";
 import "./css/NewestArticle.css";
 import "./css/TopicTop.css";
+import "./css/Login.css"
+import "./css/PostArticle.css"
 
 import HeaderBar from "./components/HeaderBar";
 import Home from "./components/Home";

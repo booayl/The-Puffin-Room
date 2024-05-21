@@ -1,0 +1,52 @@
+.login {
+  height: 65vh;
+  display: inline-flex;
+  margin-top: 15vh;
+
+  img {
+    width: 20vw;
+    height: 300px;
+    margin-right: 5vw;
+  }
+}
+
+.loginForm {
+  text-align: left;
+  h1{
+    font-family: "MostraOne", serif;
+    margin-block-end: 0em;
+  }
+  h2 {
+    margin-block-start: 0.5em;
+    color: grey;
+    font-family: "Dai Banna SIL Light Italic";
+    font-weight: normal;
+    text-align: center;
+    font-style: italic;
+    font-size: small;
+    margin-block-end: 3em;
+  }
+}
+
+input[type=text],textarea {   
+    padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+    font-weight:bolder;
+
+}
+
+input::placeholder,textarea::placeholder {
+    font-weight: lighter;
+    opacity: 0.5;
+    color: grey;
+    font-family: "Dai Banna SIL";
+    justify-self: auto;
+  }
+

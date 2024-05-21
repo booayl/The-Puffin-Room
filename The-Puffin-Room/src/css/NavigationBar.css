@@ -4,23 +4,29 @@
   background-color: white;
   box-shadow: 0 4px 5px -5px gray;
   padding: 15px;
-padding-top: 90px;
-  box-sizing: border-box; 
+  padding-top: 90px;
+  box-sizing: border-box;
 }
-  
-  .topicTab {
-    padding: 5px 10px 5px 10px;
-    margin: 0px 20px 0px 20px;
-    text-decoration: none;
-    border-radius: 50px;
-    color: #052b5f;
-  }
-  
-  .activeTopicTab {
-    padding: 5px 10px 5px 10px;
-    margin: 0px 20px 0px 20px;
-    text-decoration: none;
-    background-color: #1b90c6;
-    border-radius: 50px;
-    color: #fff;
-  }
+
+.topicTab {
+  padding: 5px 10px 5px 10px;
+  margin: 0px 20px 0px 20px;
+  text-decoration: none;
+  border-radius: 50px;
+  color: #052b5f;
+}
+
+.topicTab:hover {
+  border-bottom: #1b90c6 1px solid;
+  border-radius: 0px;
+  padding: 5px 10px 8px 10px;
+}
+
+.activeTopicTab {
+  padding: 5px 10px 5px 10px;
+  margin: 0px 20px 0px 20px;
+  text-decoration: none;
+  background-color: #1b90c6;
+  border-radius: 50px;
+  color: #fff;
+}

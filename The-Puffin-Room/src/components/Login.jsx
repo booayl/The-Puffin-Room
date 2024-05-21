@@ -42,30 +42,38 @@ function Login() {
 
   return (
     <div className="login">
-      <h1>Login</h1>
-      {errorData.status === 0 ? (
-        <div>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="validUser">username:</label>
-            <input
-              placeholder="grumpy19"
-              id="validUse"
-              type="text"
-              onChange={(event) => {
-                setUser(event.target.value);
-                setMessage("");
-              }}
-              value={user}
-            />
-            <p>
-              <button type="submit">Login</button>
-            </p>
-          </form>
-          {message && <p className="alertBoxRed">{message}</p>}
-        </div>
-      ) : (
-        <ErrorBox status={errorData.status} message={errorData.message} />
-      )}
+      <img
+        src="https://i.ibb.co/4dY2wdJ/oops.png"
+      ></img>
+
+      <div className="loginForm">
+        <h1>Hey, hello 👋</h1>
+        <h2>To experience the full functionality, please log in using the username grumpy19.</h2>
+        {errorData.status === 0 ? (
+          <div>
+            <form onSubmit={handleSubmit}>
+              <p><label htmlFor="validUser">Username</label></p>
+              <input
+                placeholder="grumpy19"
+                id="validUse"
+                type="text"
+                onChange={(event) => {
+                  setUser(event.target.value);
+                  setMessage("");
+                }}
+                value={user}
+              />
+              <hr/>
+              <p>
+                <button type="submit">Login</button>
+              </p>
+            </form>
+            {message && <p className="alertBoxRed">{message}</p>}
+          </div>
+        ) : (
+          <ErrorBox status={errorData.status} message={errorData.message} />
+        )}
+      </div>
     </div>
   );
 }

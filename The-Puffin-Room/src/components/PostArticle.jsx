@@ -45,25 +45,25 @@ function PostArticle() {
         });
     };
 
-      if (newTopic.slug && newTopic.description) {
-        postTopic(newTopic)
-          .then((createdTopic) => {
-            const updatedArticle = {
-              ...newArticle,
-              topic: createdTopic.slug,
-            };
-            setRender((prev) => !prev);
-            postNewArticle(updatedArticle);
-          })
-          .catch((error) => {
-            setErrorData({
-              status: error.status,
-              message: error.message,
-            });
+    if (newTopic.slug && newTopic.description) {
+      postTopic(newTopic)
+        .then((createdTopic) => {
+          const updatedArticle = {
+            ...newArticle,
+            topic: createdTopic.slug,
+          };
+          setRender((prev) => !prev);
+          postNewArticle(updatedArticle);
+        })
+        .catch((error) => {
+          setErrorData({
+            status: error.status,
+            message: error.message,
           });
-      } else {
-        postNewArticle(newArticle);
-      }
+        });
+    } else {
+      postNewArticle(newArticle);
+    }
   };
 
   const handleChange = (event) => {
@@ -87,56 +87,73 @@ function PostArticle() {
     });
   }, []);
 
+  const isFormValid = newArticle.title.length > 0 && newArticle.body.length > 0;
+  const isExistingTopicSelected = topicList.some(
+    (topic) => topic.slug === newArticle.topic
+  );
+
   if (!token) {
     return <Login />;
   }
 
   return (
-    <div>
+    <div className="postArticle">
+      <iframe src="https://lottie.host/embed/e284fc64-20cb-4d62-982e-053019b0b73d/UgvTahHCfo.json"></iframe>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
-            name="title"
-            placeholder="Title"
-            id="title"
-            type="text"
-            onChange={handleChange}
-            value={newArticle.title}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="body">Post</label>
-          <textarea
-            name="body"
-            placeholder="Type post here"
-            id="body"
-            type="text"
-            onChange={handleChange}
-            value={newArticle.body}
-          />
-        </div>
-
-        <div>
-          <label>Topic</label>
-          {topicList.map((topic) => (
-            <div key={topic.slug}>
-              <input
-                name="topic"
-                id={`topic-${topic.slug}`}
-                type="radio"
-                onChange={handleChange}
-                value={topic.slug}
-                checked={newArticle.topic === topic.slug}
-              />
-              <label htmlFor={`topic-${topic.slug}`}>
-                {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
-              </label>
-            </div>
-          ))}
+        <div className="postForm">
+          <h1>Publish A Post ✨</h1>
+          <h2>Is this the next Talk Of The Town?</h2>
           <div>
+            <label htmlFor="title">
+              <p>Title</p>
+            </label>
             <input
+              name="title"
+              placeholder="Title"
+              id="title"
+              type="text"
+              onChange={handleChange}
+              value={newArticle.title}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="body">
+              <p>Post</p>
+            </label>
+            <textarea
+              name="body"
+              placeholder="Type post here"
+              id="body"
+              type="text"
+              onChange={handleChange}
+              value={newArticle.body}
+            />
+          </div>
+
+          <div>
+            <label>
+              <p>Topic</p>
+            </label>
+            <div className="topicRadio">
+              {topicList.map((topic) => (
+                <div key={topic.slug}>
+                  <input
+                    name="topic"
+                    id={`topic-${topic.slug}`}
+                    type="radio"
+                    onChange={handleChange}
+                    value={topic.slug}
+                    checked={newArticle.topic === topic.slug}
+                  />
+                  <label htmlFor={`topic-${topic.slug}`}>
+                    {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
+                  </label>
+                </div>
+              ))}
+            </div>
+            <input
+              className="newTopicRadio"
               name="topic"
               id="newTopic"
               type="radio"
@@ -149,40 +166,44 @@ function PostArticle() {
               value="new"
               checked={newArticle.topic === "new"}
             />
-            <label htmlFor="newTopic">Add new topic:</label>
-          </div>
-          {newArticle.topic === "new" && (
-            <div>
+            <label htmlFor="newTopic">Add new topic:</label>{" "}
+            <div className="newTopicInput">
               <input
                 name="newTopicSlug"
-                placeholder="New topic slug"
+                placeholder="Topic Name"
                 type="text"
                 onChange={handleChange}
                 value={newTopic.slug}
+                disabled={isExistingTopicSelected}
               />
               <textarea
                 name="newTopicDescription"
-                placeholder="New topic description"
+                placeholder="Topic Description"
                 type="text"
                 onChange={handleChange}
                 value={newTopic.description}
+                disabled={isExistingTopicSelected}
               />
             </div>
-          )}
-        </div>
+          </div>
 
-        <div>
-          <label htmlFor="article_img_url">Image Url</label>
-          <input
-            name="article_img_url"
-            placeholder="Image Url"
-            id="article_img_url"
-            type="text"
-            onChange={handleChange}
-            value={newArticle.article_img_url}
-          />
+          <div>
+            <label htmlFor="article_img_url">
+              <p>Image Url</p>
+            </label>
+            <input
+              name="article_img_url"
+              placeholder="Image Url"
+              id="article_img_url"
+              type="text"
+              onChange={handleChange}
+              value={newArticle.article_img_url}
+            />
+          </div>
+          <button type="submit" disabled={!isFormValid}>
+            Publish
+          </button>
         </div>
-        <button type="submit">Publish</button>
       </form>
     </div>
   );
