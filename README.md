@@ -2,11 +2,11 @@
 
 The Puffin Room is a web application built using React with Vite, communicating with a Node.js backend hosted on Render. This project is part of my software development bootcamp with NorthCoders and extends from the backend API developed previously [here](https://github.com/booayl/PuffinRoom-BE.git).
 
-## Functionality
+### Functionality
 
 The Puffin Room offers various features enabling users to browse, read, and engage with forum articles.
 
-### Theme Options
+## Theme Options
 
 The application offers both dark and light themes, allowing users to switch between them based on their preference.
 
@@ -14,7 +14,7 @@ The application offers both dark and light themes, allowing users to switch betw
 
 The application includes user logim for commenting on articles, posting articles, and managing user-generated content.
 
-### Landing Page
+## Landing Page
 
 The Landing Page features sections including:
 
@@ -33,7 +33,7 @@ Comments can be found in the individual article page. Users must log in to post 
 
 Users can intereact by liking an article, double clicking allows user to remove their like. Like counts is updated instantly by optimistic rendering, providing immediate feedback to users.
 
-### Sorting
+## Sorting
 
 Articles can be sorted by date, likes, or comments, and in ascending or descending order.
 
